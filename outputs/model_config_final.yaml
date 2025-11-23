@@ -1,0 +1,5 @@
+# Model Configuration
+model_type: SamModel
+parameters: 93735472
+trainable_parameters: 4058340
+note: 'This is an auto-generated minimal config.'

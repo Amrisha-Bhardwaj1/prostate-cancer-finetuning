@@ -1,0 +1,27 @@
+[2025-11-23 13:58:18] STARTING TRAINING (robust loop)
+[2025-11-23 13:58:18] Config: {'num_epochs': 50, 'save_every_batches': 200, 'device': 'cuda', 'batch_size': 2, 'timestamp': '2025-11-23T13:58:17.902360'}
+[2025-11-23 13:58:18] Starting Epoch 1/50
+[2025-11-23 13:59:46] Batch 100 | Batch Loss: 0.000000
+[2025-11-23 14:01:19] Saved periodic backup: /content/outputs/backup_epoch1_batch200.pt -- loss: 0.523653
+[2025-11-23 14:01:19] Batch 200 | Batch Loss: 0.523653
+[2025-11-23 14:02:49] Batch 300 | Batch Loss: 0.000000
+[2025-11-23 14:04:24] Saved periodic backup: /content/outputs/backup_epoch1_batch400.pt -- loss: 0.501102
+[2025-11-23 14:04:24] Batch 400 | Batch Loss: 0.501102
+[2025-11-23 14:05:54] Batch 500 | Batch Loss: 0.000000
+[2025-11-23 14:07:28] Saved periodic backup: /content/outputs/backup_epoch1_batch600.pt -- loss: 0.000115
+[2025-11-23 14:07:28] Batch 600 | Batch Loss: 0.000115
+[2025-11-23 14:08:58] Batch 700 | Batch Loss: 0.000002
+[2025-11-23 14:10:33] Saved periodic backup: /content/outputs/backup_epoch1_batch800.pt -- loss: 0.000003
+[2025-11-23 14:10:33] Batch 800 | Batch Loss: 0.000003
+[2025-11-23 14:12:02] Batch 900 | Batch Loss: 0.000000
+[2025-11-23 14:13:40] Saved periodic backup: /content/outputs/backup_epoch1_batch1000.pt -- loss: 0.000045
+[2025-11-23 14:13:40] Batch 1000 | Batch Loss: 0.000045
+[2025-11-23 14:15:09] Batch 1100 | Batch Loss: 0.000004
+[2025-11-23 14:16:40] Saved periodic backup: /content/outputs/backup_epoch1_batch1200.pt -- loss: 0.000014
+[2025-11-23 14:16:40] Batch 1200 | Batch Loss: 0.000014
+[2025-11-23 14:18:10] Batch 1300 | Batch Loss: 0.537885
+[2025-11-23 14:19:47] Saved periodic backup: /content/outputs/backup_epoch1_batch1400.pt -- loss: 0.000000
+[2025-11-23 14:19:47] Batch 1400 | Batch Loss: 0.000000
+[2025-11-23 14:21:16] Batch 1500 | Batch Loss: 0.000003
+[2025-11-23 14:22:32] Manual KeyboardInterrupt received. Saved interrupted model.
+[2025-11-23 14:22:32] Saved at: /content/outputs/interrupted_model.pt

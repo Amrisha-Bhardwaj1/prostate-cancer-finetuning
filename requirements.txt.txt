@@ -1,0 +1,23 @@
+The requirements for running the code are the libraries of python that are necessary for fine-tuning the model.
+There are some environment setups that are required to run the code that are:
+torch
+torchvision
+numpy
+opencv-python
+matplotlib
+tqdm
+pyyaml
+scikit-image
+pandas
+Pillow
+
+The code also uses HuggingFace SAM components to run that are mentioned below:
+transformers
+datasets
+
+Install the required model that is "segment-anything".
+
+
+
+
+

@@ -1,0 +1,7 @@
+{
+  "num_epochs": 50,
+  "save_every_batches": 200,
+  "device": "cuda",
+  "batch_size": 2,
+  "timestamp": "2025-11-23T13:58:17.902360"
+}

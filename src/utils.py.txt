@@ -1,0 +1,114 @@
+"""
+utils.py
+---------
+Utility functions for the Prostate Cancer Fine-Tuning Project.
+Includes helper methods for data loading, preprocessing, visualization, and metrics.
+"""
+
+import os
+import cv2
+import numpy as np
+from tqdm import tqdm
+import matplotlib.pyplot as plt
+from sklearn.metrics import jaccard_score, f1_score
+
+# -------------------------------------------------------
+# 🧩 Dataset Utilities
+# -------------------------------------------------------
+
+def load_image(image_path):
+    """Load an image from disk and convert it to RGB."""
+    img = cv2.imread(image_path)
+    if img is None:
+        raise FileNotFoundError(f"Image not found at {image_path}")
+    return cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+
+
+def load_mask(mask_path):
+    """Load segmentation mask as grayscale."""
+    mask = cv2.imread(mask_path, cv2.IMREAD_GRAYSCALE)
+    if mask is None:
+        raise FileNotFoundError(f"Mask not found at {mask_path}")
+    return mask
+
+
+def load_dataset(image_dir, mask_dir, limit=None):
+    """
+    Load a list of (image, mask) pairs from directories.
+    Args:
+        image_dir: Path to image folder
+        mask_dir: Path to mask folder
+        limit: Optional limit for number of samples
+    """
+    image_files = sorted(os.listdir(image_dir))
+    mask_files = sorted(os.listdir(mask_dir))
+    pairs = list(zip(image_files, mask_files))
+    if limit:
+        pairs = pairs[:limit]
+    dataset = []
+    for img_name, mask_name in tqdm(pairs, desc="Loading dataset"):
+        img = load_image(os.path.join(image_dir, img_name))
+        mask = load_mask(os.path.join(mask_dir, mask_name))
+        dataset.append((img, mask))
+    return dataset
+
+
+# -------------------------------------------------------
+# 📏 Metrics Utilities
+# -------------------------------------------------------
+
+def compute_iou(y_true, y_pred):
+    """Compute Intersection over Union (IoU) score."""
+    y_true = y_true.flatten()
+    y_pred = y_pred.flatten()
+    return jaccard_score(y_true, y_pred, average='binary')
+
+
+def compute_dice(y_true, y_pred):
+    """Compute Dice Coefficient."""
+    y_true = y_true.flatten()
+    y_pred = y_pred.flatten()
+    return f1_score(y_true, y_pred, average='binary')
+
+
+# -------------------------------------------------------
+# 🖼️ Visualization Utilities
+# -------------------------------------------------------
+
+def visualize_sample(image, mask, pred_mask=None):
+    """Visualize image, ground truth mask, and optional predicted mask."""
+    plt.figure(figsize=(12, 4))
+    
+    plt.subplot(1, 3, 1)
+    plt.imshow(image)
+    plt.title("Input Image")
+    plt.axis("off")
+
+    plt.subplot(1, 3, 2)
+    plt.imshow(mask, cmap='gray')
+    plt.title("Ground Truth Mask")
+    plt.axis("off")
+
+    if pred_mask is not None:
+        plt.subplot(1, 3, 3)
+        plt.imshow(pred_mask, cmap='gray')
+        plt.title("Predicted Mask")
+        plt.axis("off")
+
+    plt.tight_layout()
+    plt.show()
+
+
+# -------------------------------------------------------
+# 🧾 Misc
+# -------------------------------------------------------
+
+def summary():
+    """Quick check to confirm utils are loaded."""
+    print("✅ utils.py loaded successfully — available functions:")
+    print("- load_image(image_path)")
+    print("- load_mask(mask_path)")
+    print("- load_dataset(image_dir, mask_dir, limit=None)")
+    print("- compute_iou(y_true, y_pred)")
+    print("- compute_dice(y_true, y_pred)")
+    print("- visualize_sample(image, mask, pred_mask=None)")

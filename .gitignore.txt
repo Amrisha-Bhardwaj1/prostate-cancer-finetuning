@@ -1,0 +1,60 @@
+# ----------------------------
+# Python cache
+# ----------------------------
+__pycache__/
+*.py[cod]
+
+# ----------------------------
+# Virtual environments
+# ----------------------------
+venv/
+.env/
+
+# ----------------------------
+# Jupyter Notebook checkpoints
+# ----------------------------
+.ipynb_checkpoints/
+
+# ----------------------------
+# Data and datasets (avoid pushing huge files)
+# ----------------------------
+data/
+datasets/
+*.zip
+*.tar
+*.gz
+*.csv
+*.h5
+
+# ----------------------------
+# Model files (prevent large checkpoints)
+# ----------------------------
+*.pt
+*.pth
+*.ckpt
+
+# ----------------------------
+# OUTPUT FOLDER RULES
+# ----------------------------
+# Ignore the entire outputs folder
+outputs/*
+
+# BUT allow these important small files
+!outputs/
+!outputs/training_config.json
+!outputs/model_config.yaml
+!outputs/results_summary.md
+!outputs/training_log.txt
+!outputs/loss_curve.png
+
+# ----------------------------
+# Logs
+# ----------------------------
+*.log
+runs/
+
+# ----------------------------
+# System files
+# ----------------------------
+.DS_Store
+Thumbs.db
